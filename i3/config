@@ -1,13 +1,10 @@
-
+#For Wallpaper
 exec --no-startup-id nitrogen --restore
 
 set $mod Mod4
 
+#Window title
 default_border pixel
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -24,7 +21,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme MY_ICON_THEME
-
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
@@ -159,11 +155,11 @@ gaps outer 10
 bindsym $mod+c 					exec chromium
 bindsym $mod+n 					exec nautilus
 
-#sound and brightness
-
+#brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
+#sound
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+   
 bindsym XF86AudioLowerVolume  exec amixer -D pulse sset Master 5%-
 
