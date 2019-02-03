@@ -1,20 +1,36 @@
-#For Wallpaper
-exec --no-startup-id nitrogen --restore
-
 set $mod Mod4
 
+#Auto-Launch
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id imwheel
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id polybar i3-bar
+exec_always --no-startup-id sleep 1; al-polybar-session
+exec_always compton
+
 #Window title
-default_border pixel
+#default_border pixel
+
+###---Basic Definitions---Also Smart Gaps-----###
+smart_gaps on
+for_window [class="^.*"] border pixel 4                        
+gaps inner 10	
+gaps outer 10
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+# Hide borders
+hide_edge_borders none
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 12
+font pango:System San Francisco Display 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,15 +160,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always compton
-
-# gaps
-gaps inner 10
-gaps outer 10
-
 # Apps
-bindsym $mod+c 					exec chromium
+bindsym $mod+c 					exec firefox
 bindsym $mod+n 					exec nautilus
 
 #brightness
@@ -160,9 +169,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 #sound
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+   
-bindsym XF86AudioLowerVolume  exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec pamixer -i 5   
+bindsym XF86AudioLowerVolume exec pamixer -d 5
 
-
-
-
+#border colors
+client.focused #9E9D9B #9E9D9B #9E9D9B #9E9D9B
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused #3E4651 #3E4651 #3E4651 #3E4651
+client.urgent #2f343a #900000 #ffffff #900000
