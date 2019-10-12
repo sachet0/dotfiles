@@ -1,3 +1,2 @@
-# dotfiles
-
-dotfiles for i3 and polybar
+# Config Files
+Config files for i3, nvim, polybar and zsh
